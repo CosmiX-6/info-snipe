@@ -95,7 +95,7 @@ Pass an instance into `NewsFetcher(sources=[...])`.
 
 - Country filtering is native to NewsAPI's `top-headlines` endpoint (used by
   category-based genres like `tech`/`world`). Topic-only genres like `ai`
-  use NewsAPI's `everything` endpoint, which has no country filter — regional
+  use NewsAPI's `everything` endpoint, which has no country filter, so regional
   coverage for those relies on `rss_feeds_by_country` instead.
 - Dedup is per identity (URL or source+title), so a story republished under a
   materially different URL by another outlet is treated as new content.

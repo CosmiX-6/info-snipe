@@ -7,7 +7,7 @@ from .content_id import make_content_id
 from .genres import GenreConfig, get_genre
 from .models import Article
 from .sources.base import NewsSource
-from .store import ContentStore
+from .store import ContentStore, SeenStore
 
 _MIN_DATETIME = datetime.min.replace(tzinfo=timezone.utc)
 
@@ -16,7 +16,7 @@ class NewsFetcher:
     """Orchestrates one or more NewsSources for a genre, normalizes their
     output into Articles, and filters out anything already seen."""
 
-    def __init__(self, sources: Sequence[NewsSource], store: Optional[ContentStore] = None):
+    def __init__(self, sources: Sequence[NewsSource], store: Optional[SeenStore] = None):
         if not sources:
             raise ValueError("NewsFetcher requires at least one NewsSource")
         self.sources = list(sources)

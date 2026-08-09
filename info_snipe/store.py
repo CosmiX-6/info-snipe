@@ -2,11 +2,23 @@ import sqlite3
 import threading
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Iterable, Optional, Union
+from typing import Iterable, Optional, Protocol, Union, runtime_checkable
 
 from .models import Article
 
 DEFAULT_DB_PATH = Path.home() / ".info_snipe" / "seen_content.db"
+
+
+@runtime_checkable
+class SeenStore(Protocol):
+    """The subset of ContentStore's surface NewsFetcher actually calls.
+    Documents the seam for alternative backends (e.g. store_postgres's
+    PostgresContentStore for deployments with no persistent local disk) --
+    NewsFetcher already works with anything matching this shape via duck
+    typing, this just names the contract."""
+
+    def filter_unseen(self, content_ids: Iterable[str]) -> set: ...
+    def mark_seen_many(self, articles: Iterable[Article]) -> None: ...
 
 
 class ContentStore:

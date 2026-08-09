@@ -102,3 +102,24 @@ register_genre(
         rss_feeds=["https://www.sciencedaily.com/rss/all.xml"],
     )
 )
+
+register_genre(
+    GenreConfig(
+        key="gaming",
+        label="Gaming",
+        # NewsAPI has no top-headlines "gaming" category, so this genre
+        # relies on /v2/everything free-text search instead (same pattern
+        # as "ai").
+        newsapi_query=(
+            '"video game" OR gaming OR esports OR PlayStation OR Xbox OR '
+            'Nintendo OR "PC gaming"'
+        ),
+        rss_feeds=[
+            "https://www.ign.com/rss/articles/feed",
+            "https://www.polygon.com/rss/index.xml",
+            "https://kotaku.com/rss",
+            "https://www.pcgamer.com/rss/",
+            "https://www.eurogamer.net/feed",
+        ],
+    )
+)

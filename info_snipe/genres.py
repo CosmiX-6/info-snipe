@@ -44,13 +44,19 @@ register_genre(
         label="Artificial Intelligence",
         newsapi_query=(
             '"artificial intelligence" OR "machine learning" OR LLM OR '
-            'ChatGPT OR "AI tools" OR "AI model"'
+            'ChatGPT OR "AI tools" OR "AI model" OR "foundation model" OR '
+            '"AI agent" OR "generative AI"'
         ),
         rss_feeds=[
+            # Wire-speed AI news (breaks stories fastest)
+            "https://the-decoder.com/feed/",
+            # Established AI verticals
             "https://www.artificialintelligence-news.com/feed/",
-            "https://techcrunch.com/tag/artificial-intelligence/feed/",
-            "https://www.technologyreview.com/feed/",
             "https://venturebeat.com/category/ai/feed/",
+            "https://techcrunch.com/tag/artificial-intelligence/feed/",
+            # Deep-tech / research angle
+            "https://www.technologyreview.com/feed/",
+            "https://www.wired.com/feed/tag/artificial-intelligence/rss",
         ],
     )
 )
@@ -61,9 +67,16 @@ register_genre(
         label="Technology & Gadgets",
         newsapi_category="technology",
         rss_feeds=[
+            # Wire services (fastest, published within minutes of events)
+            "https://feeds.reuters.com/reuters/technologyNews",
+            # Established tech outlets
             "https://techcrunch.com/feed/",
             "https://www.theverge.com/rss/index.xml",
             "https://arstechnica.com/feed/",
+            "https://www.wired.com/feed/rss",
+            "https://www.engadget.com/rss.xml",
+            # UK perspective (covers stories US outlets miss)
+            "https://www.theregister.com/headlines.atom",
         ],
     )
 )
@@ -74,11 +87,17 @@ register_genre(
         label="Global / World News",
         newsapi_category="general",
         rss_feeds=[
+            # Wire services first — fastest updates
+            "https://feeds.reuters.com/reuters/worldNews",
+            "https://feeds.reuters.com/reuters/topNews",
             "http://feeds.bbci.co.uk/news/world/rss.xml",
             "https://www.aljazeera.com/xml/rss/all.xml",
         ],
         rss_feeds_by_country={
-            "us": ["https://feeds.npr.org/1004/rss.xml"],
+            "us": [
+                "https://feeds.npr.org/1004/rss.xml",
+                "https://feeds.reuters.com/reuters/domesticNews",
+            ],
             "gb": ["http://feeds.bbci.co.uk/news/uk/rss.xml"],
             "in": ["https://www.thehindu.com/news/national/feeder/default.rss"],
         },
@@ -90,7 +109,14 @@ register_genre(
         key="business",
         label="Business & Finance",
         newsapi_category="business",
-        rss_feeds=["https://feeds.a.dj.com/rss/RSSMarketsMain.xml"],
+        rss_feeds=[
+            # Wire services
+            "https://feeds.reuters.com/reuters/businessNews",
+            "https://feeds.reuters.com/news/wealth",
+            # Markets
+            "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+            "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+        ],
     )
 )
 
@@ -99,7 +125,14 @@ register_genre(
         key="science",
         label="Science",
         newsapi_category="science",
-        rss_feeds=["https://www.sciencedaily.com/rss/all.xml"],
+        rss_feeds=[
+            # High-volume science news aggregators (publish fastest)
+            "https://phys.org/rss-feed/",
+            "https://www.sciencedaily.com/rss/all.xml",
+            # Broader audience science writing
+            "https://www.newscientist.com/feed/home/",
+            "https://www.scientificamerican.com/platform/syndication/rss/",
+        ],
     )
 )
 

@@ -138,6 +138,36 @@ register_genre(
 
 register_genre(
     GenreConfig(
+        key="entrepreneurs",
+        label="Business Leaders & Entrepreneurs",
+        # /v2/everything: catches CEO moves, funding rounds, billionaire
+        # statements and startup breakthroughs across all sources.
+        newsapi_query=(
+            '"CEO" OR "billion" OR "startup" OR "IPO" OR "acquisition" OR '
+            '"Elon Musk" OR "Sam Altman" OR "Jensen Huang" OR "Jeff Bezos" OR '
+            '"Mark Zuckerberg" OR "Tim Cook" OR "Satya Nadella" OR '
+            '"Larry Ellison" OR "founder" OR "venture capital"'
+        ),
+        rss_feeds=[
+            # Wire-speed business news
+            "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
+            "https://feeds.bloomberg.com/technology/news.rss",
+            "https://feeds.bloomberg.com/markets/news.rss",
+            # Personality-driven business coverage
+            "https://www.forbes.com/business/feed/",
+            "https://www.forbes.com/innovation/feed/",
+            "https://feeds.businessinsider.com/custom/all",
+            "https://fortune.com/feed/",
+            # Startup / founder / innovation angle
+            "https://www.inc.com/rss/",
+            "https://www.fastcompany.com/latest/rss",
+            "https://www.entrepreneur.com/latest.rss",
+        ],
+    )
+)
+
+register_genre(
+    GenreConfig(
         key="gaming",
         label="Gaming",
         # NewsAPI has no top-headlines "gaming" category, so this genre

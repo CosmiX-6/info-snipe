@@ -57,6 +57,9 @@ register_genre(
             # Deep-tech / research angle
             "https://www.technologyreview.com/feed/",
             "https://www.wired.com/feed/tag/artificial-intelligence/rss",
+            # India — ET Tech covers Indian AI deployments and policy fast
+            "https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms",
+            "https://www.medianama.com/feed/",
         ],
     )
 )
@@ -77,6 +80,9 @@ register_genre(
             "https://www.engadget.com/rss.xml",
             # UK perspective (covers stories US outlets miss)
             "https://www.theregister.com/headlines.atom",
+            # India — gadget reviews + policy, among the fastest in Asia
+            "https://feeds.feedburner.com/gadgets360-latest",
+            "https://www.medianama.com/feed/",
         ],
     )
 )
@@ -99,7 +105,11 @@ register_genre(
                 "https://feeds.reuters.com/reuters/domesticNews",
             ],
             "gb": ["http://feeds.bbci.co.uk/news/uk/rss.xml"],
-            "in": ["https://www.thehindu.com/news/national/feeder/default.rss"],
+            "in": [
+                "https://www.thehindu.com/news/national/feeder/default.rss",
+                "https://economictimes.indiatimes.com/rssfeedstopstories.cms",
+                "https://www.livemint.com/rss/news",
+            ],
         },
     )
 )
@@ -117,6 +127,14 @@ register_genre(
             "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
             "https://www.cnbc.com/id/100003114/device/rss/rss.html",
         ],
+        rss_feeds_by_country={
+            "in": [
+                # India's largest financial dailies
+                "https://www.livemint.com/rss/news",
+                "https://www.thehindubusinessline.com/feeder/default.rss",
+                "https://www.moneycontrol.com/rss/latestnews.xml",
+            ],
+        },
     )
 )
 
@@ -163,6 +181,15 @@ register_genre(
             "https://www.fastcompany.com/latest/rss",
             "https://www.entrepreneur.com/latest.rss",
         ],
+        rss_feeds_by_country={
+            "in": [
+                # India startup ecosystem — among the world's most active
+                "https://economictimes.indiatimes.com/tech/startups/rssfeeds/78570550.cms",
+                "https://inc42.com/feed/",
+                "https://yourstory.com/feed",
+                "https://the-ken.com/feed/",
+            ],
+        },
     )
 )
 
